@@ -6,7 +6,7 @@ function isThisDangerous(posts) {
         // let's name the values of each object in a variable called data
         let data = Object.values(posts[i]);
         // if the object contains the word invasion anywhere in it, then execute this code
-        if (data.indexOf('invasion') === -1) {
+        if (posts[i].body.indexOf('invasion') !== -1) {
             // add one to the existing riskRating for this post 
             posts[i].riskRating += 1;
             //if the object contains the word invasion and also the word immigration anywhere in it, then execute this code
@@ -21,6 +21,7 @@ function isThisDangerous(posts) {
 // sort the data so that the riskiest posts are listed first.
 function sortPostsByRiskRanking(posts) {
     let sorted = posts.sort((a, b) => (b.riskRating > a.riskRating) ? 1 : -1);
+    console.log(sorted);
     return sorted;
 }
 
