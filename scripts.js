@@ -25,7 +25,7 @@ function limitPosts(number){
     let arrayToPost = postsToAnalyze.splice(0, number);
     console.log(arrayToPost)
 }
-// sort the data so that the riskiest posts are listed first.
+// sort the data so that the highest ranked posts are listed first.
 function sortPostsByRiskRanking(posts) {
     let sorted = posts.sort((a, b) => (b.showRating > a.showRating) ? 1 : -1);
     console.log(sorted)
