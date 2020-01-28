@@ -4,9 +4,9 @@ function isThisDangerous(posts) {
     // posts is an array of social media posts, each of which is an object. we'll iterate through the array to look at its contents
     for (let i = 0; i < posts.length; i++) {
         // let's name the values of each object in a variable called data
-        let data = Object.values(posts[i]);
+        let data = Object.values(posts[i].body);
         // if the object contains the word invasion anywhere in it, then execute this code
-        if (posts[i].body.indexOf('invasion') !== -1) {
+        if (data.indexOf('invasion') !== -1) {
             // add one to the existing riskRating for this post 
             posts[i].riskRating += 1;
             //if the object contains the word invasion and also the word immigration anywhere in it, then execute this code
