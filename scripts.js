@@ -1,29 +1,27 @@
-function isThisDangerous(posts)
-{
-    // posts is an array of social media posts, each of which is an object.
-    for (let i = 0; i < posts.length; i++)
-    {
-        // body is the key for the body text of each post
-        // if the body text contains the word invasion, then execute this code
-        if (posts[i][body].indexOf('invasion') !== -1)
-        {
+const postsToAnalyze = [{ body: '...', riskRating: 10}, { body: '...', riskRating: 0 }];
+
+function isThisDangerous(posts) {
+    // posts is an array of social media posts, each of which is an object. we'll iterate through the array to look at its contents
+    for (let i = 0; i < posts.length; i++) {
+        // let's name the values of each object in a variable called data
+        let data = Object.values(posts[i]);
+        // if the object contains the word invasion anywhere in it, then execute this code
+        if (data.indexOf('invasion') === -1) {
             // add one to the existing riskRating for this post 
-            post[i][riskRating] += 1; 
-        }
-         // body is the key for the body text of each post
-        // if the body text contains the word invasion and also immigration, then execute this code
-        else if(posts[i][body].indexOf('invasion') !== -1 && posts[i][body].indexOf('immigration') !== -1)
-        {
-            // add one to the existing riskRating for this post 
-            post[i][riskRating] += 2; 
+            posts[i].riskRating += 1;
+            //if the object contains the word invasion and also the word immigration anywhere in it, then execute this code
+        } else if (data.indexOf('invasion') !== -1 && data.indexOf('immigration') !== -1) {
+            // add two to the existing riskRating for this post 
+            posts[i].riskRating += 2;
         }
     }
+    sortPostsByRiskRanking(posts);
 }
 
-
-function sortPostsByRiskRanking (posts)
-{
-    let sorted = posts.sort((a, b) => (a.riskRating > b.riskRating) ? 1 : -1);
-    return sorted; 
+// sort the data so that the riskiest posts are listed first.
+function sortPostsByRiskRanking(posts) {
+    let sorted = posts.sort((a, b) => (b.riskRating > a.riskRating) ? 1 : -1);
+    return sorted;
 }
 
+isThisDangerous(postsToAnalyze);
