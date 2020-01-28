@@ -1,4 +1,4 @@
-let postsToAnalyze = [{ body: 'invasion immigration this is an article about', showRating: 0}, { body: 'immigration invasion', showRating: 0 }];
+let postsToAnalyze = [{ body: 'invasion immigration this is an article about invasion immigration', showRating: 0}, { body: 'immigration invasion', showRating: 0 }];
 let keywords = ['invasion', 'immigration']
 function isThisDangerous(posts) {
     // posts is an array of social media posts, each of which is an object. we'll iterate through the array to look at its contents
