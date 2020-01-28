@@ -1,4 +1,4 @@
-let postsToAnalyze = [{ body: 'invasion immigration this is an article about invasion invasion immigration', showRating: 0}, { body: 'immigration invasion', showRating: 0 }];
+let postsToAnalyze = [{ body: 'invasion immigration this is an article about', showRating: 0}, { body: 'immigration invasion', showRating: 0 }];
 let keywords = ['invasion', 'immigration']
 function isThisDangerous(posts) {
     // posts is an array of social media posts, each of which is an object. we'll iterate through the array to look at its contents
@@ -13,8 +13,9 @@ function isThisDangerous(posts) {
                 // count how many times the word is used and add that number to the risk rating
                 let count = posts[i].showRating;
                 let occurrence = words.filter(x => x === keywords[i]).length;
+                console.log(occurrence, 'is the occurrence for', posts[i]);
                 count += occurrence; 
-                posts[i].showRating += count;
+                posts[i].showRating = count;
             }
         } 
     }
