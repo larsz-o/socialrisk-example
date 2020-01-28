@@ -9,14 +9,14 @@ function isThisDangerous(posts) {
         let words = data.split(' ');
         // next, we search through our new array, called words, to try to find our risk words using the method indexOf
         if (words.indexOf('invasion') !== -1) {
-            // add one to the existing riskRating for this post 
+           // count how many times the word is used and add that number to the risk rating
             let count = posts[i].riskRating;
             let occurrence = words.filter(x => x === 'immigration').length;
             count += occurrence;
             posts[i].riskRating += count;
             //if the post contains the word invasion and also the word immigration anywhere in it, then execute this code
         } else if (words.indexOf('invasion') !== -1 && words.indexOf('immigration') !== -1) {
-            // add two to the existing riskRating for this post 
+            // count how many times the word is used and add that number to the risk rating
             let count = posts[i].riskRating;
             let occurrence = words.filter(x => x === 'immigration').length;
             count += occurrence; 
